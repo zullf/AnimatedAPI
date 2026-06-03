@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import AnimatedCard from "./components/AnimatedCard";
+import SwipeableListItem from "./components/SwipeableListItem";
+import BackgroundQuote from "./components/BackgroundQuote";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={styles.root}>
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView contentContainerStyle={styles.container}>
+          <AnimatedCard />
+
+          <SwipeableListItem title="Tugas Mobile Programming" />
+
+          <BackgroundQuote />
+        </ScrollView>
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#f2f2f2",
+  },
+  container: {
+    padding: 20,
   },
 });
